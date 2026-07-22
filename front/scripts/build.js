@@ -10,7 +10,8 @@ if (!fs.existsSync(distDir)) {
 
 const filesToCopy = [
   { from: path.join(root, 'index.html'), to: path.join(distDir, 'index.html') },
-  { from: path.join(root, 'public'), to: path.join(distDir, 'public') }
+  { from: path.join(root, 'public'), to: path.join(distDir, 'public') },
+  { from: path.join(root, 'src'), to: path.join(distDir, 'src') }
 ];
 
 for (const entry of filesToCopy) {
