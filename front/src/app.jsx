@@ -1,4 +1,4 @@
-const { useState, useEffect } = React;
+import React, { useState, useEffect } from 'react';
 
 function useLoadLeaflet() {
   useEffect(() => {
@@ -13,7 +13,6 @@ function useLoadLeaflet() {
     document.body.appendChild(script);
   }, []);
 }
-
 function Map() {
   useLoadLeaflet();
   useEffect(() => {
@@ -126,4 +125,4 @@ function App(){
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+export default App;
