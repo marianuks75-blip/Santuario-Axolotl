@@ -3,210 +3,210 @@ const root = document.getElementById('root');
 if (root) {
   root.innerHTML = `
     <header class="site-header">
-      <div class="brand">
-        <span class="logo">🦎</span>
-        <div>
-          <p class="eyebrow">Santuario Axolotl</p>
-          <h1>Conservación, refugio y cultura del ajolote mexicano</h1>
-        </div>
-      </div>
-      <nav class="site-nav">
-        <a href="#productos">Productos</a>
-        <a href="#video">Video</a>
-        <a href="#testimonios">Testimonios</a>
-        <a href="#mapa">Mapa</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </header>
+      const root = document.getElementById('root');
 
-    <main class="page">
-      <section class="hero" id="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Refugio y conciencia</p>
-          <h2>Un espacio dedicado a la protección y difusión del ajolote</h2>
-          <p class="lead">Visítanos para conocer nuestro refugio, explorar productos responsables y apoyar la conservación de esta especie única.</p>
-          <div class="actions">
-            <a href="#productos" class="button primary">Ver productos</a>
-            <a href="#contacto" class="button secondary">Escribirnos</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <img src="https://via.placeholder.com/720x520.png?text=Ajolote+refugio" alt="Ajolote en su refugio" loading="lazy" />
-        </div>
-      </section>
+      // Dynamically load Leaflet CSS and JS for the interactive map
+      function loadLeaflet(callback) {
+        if (window.L) return callback();
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(link);
 
-      <section class="section cards" id="productos">
-        <h2>Productos</h2>
-        <p class="section-copy">Encuentra artículos inspirados en la conservación y la cultura mexicana, creados para apoyar nuestro refugio.</p>
-        <div class="grid cards-grid">
-          <article>
-            <img src="https://via.placeholder.com/520x320.png?text=Producto+1" alt="Producto 1" loading="lazy" />
-            <h3>Playera Ajolote</h3>
-            <p>Diseño original con mensaje de conservación.</p>
-          </article>
-          <article>
-            <img src="https://via.placeholder.com/520x320.png?text=Producto+2" alt="Producto 2" loading="lazy" />
-            <h3>Taza Ecológica</h3>
-            <p>Material sostenible y arte del ajolote mexicano.</p>
-          </article>
-          <article>
-            <img src="https://via.placeholder.com/520x320.png?text=Producto+3" alt="Producto 3" loading="lazy" />
-            <h3>Cuaderno</h3>
-            <p>Notas y bocetos con ilustraciones de la fauna.</p>
-          </article>
-        </div>
-      </section>
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        script.onload = () => callback();
+        document.body.appendChild(script);
+      }
 
-      <section class="section video-section" id="video">
-        <h2>Video del refugio</h2>
-        <p class="section-copy">Descubre nuestro espacio y nuestras actividades en este breve recorrido audiovisual.</p>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video de Santuario Axolotl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      </section>
+      if (root) {
+        root.innerHTML = `
+          <header class="site-header">
+            <div class="brand">
+              <span class="logo">🦎</span>
+              <div>
+                <p class="eyebrow">Santuario Axolotl</p>
+                <h1>Conservación, refugio y cultura del ajolote</h1>
+              </div>
+            </div>
+            <nav class="site-nav">
+              <a href="#productos">Productos</a>
+              <a href="#video">Video</a>
+              <a href="#testimonios">Testimonios</a>
+              <a href="#mapa">Mapa</a>
+              <a href="#formulario">Contacto</a>
+              <a href="#tabla-ejemplo">Tabla</a>
+            </nav>
+          </header>
 
-      <section class="section testimonials" id="testimonios">
-        <h2>Testimonios</h2>
-        <p class="section-copy">Historias reales de visitantes, voluntarios y colaboradores que apoyan al refugio.</p>
-        <div class="grid testimonial-grid">
-          <article>
-            <p>“El refugio es hermoso y el equipo explica todo con mucho cariño. Aprendí a valorar al ajolote de otra manera.”</p>
-            <span>— María, visitante</span>
-          </article>
-          <article>
-            <p>“Compré una taza y llegó rápido. Me encanta apoyar una causa que protege a los ajolotes.”</p>
-            <span>— Jorge, colaborador</span>
-          </article>
-          <article>
-            <p>“El equipo hace un trabajo admirable en la conservación y la educación ambiental.”</p>
-            <span>— Ana, voluntaria</span>
-          </article>
-        </div>
-      </section>
+          <main class="page">
+            <section id="titulos" class="section">
+              <h2>Títulos de ejemplo</h2>
+              <h1>H1 - Santuario Axolotl</h1>
+              <h2>H2 - Conservación</h2>
+              <h3>H3 - Actividades</h3>
+            </section>
 
-      <section class="section map-section" id="mapa">
-        <h2>Ubicación</h2>
-        <p class="section-copy">Nos encontramos en el corazón del área protegida, con visitas guiadas y actividades educativas.</p>
-        <div class="map-wrapper">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188671.45344795708!2d-99.23419657485816!3d19.2861115066769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92a3e08cc6d%3A0x31cd9225f12405be!2sXochimilco%2C%20CDMX!5e0!3m2!1ses!2smx!4v1700580000000!5m2!1ses!2smx" title="Mapa del refugio Santuario Axolotl" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </section>
+            <section id="listas" class="section">
+              <h2>Listas</h2>
+              <p>Lista desordenada:</p>
+              <ul>
+                <li>Protección</li>
+                <li>Educación</li>
+                <li>Investigación</li>
+              </ul>
 
-      <section class="section contact-section" id="contacto">
-        <div class="contact-copy">
-          <h2>Contacto</h2>
-          <p>¿Tienes dudas, pedidos especiales o quieres apoyar el refugio? Escríbenos y te responderemos pronto.</p>
-        </div>
-        <form id="contact-form" class="contact-form">
-          <label>Nombre<input type="text" name="nombre" placeholder="Tu nombre" required></label>
-          <label>Correo<input type="email" name="correo" placeholder="correo@ejemplo.com" required></label>
-          <label>Teléfono<input type="tel" name="telefono" placeholder="123 456 7890"></label>
-          <label>Mensaje<textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí" required></textarea></label>
-          <button type="submit" class="button primary">Enviar mensaje</button>
-          <p id="contact-feedback" class="feedback"></p>
-        </form>
-      </section>
+              <p>Lista ordenada:</p>
+              <ol>
+                <li>Visita el refugio</li>
+                <li>Participa como voluntario</li>
+                <li>Apoya comprando productos</li>
+              </ol>
+            </section>
 
-      <section class="section info-section" id="privacy">
-        <h2>Aviso de privacidad</h2>
-        <p>Protegemos tus datos personales y los usamos únicamente para responder tus consultas y mejorar nuestros servicios. No compartimos información con terceros.</p>
-      </section>
+            <section id="productos" class="section">
+              <h2>Productos destacados</h2>
+              <div class="grid cards-grid">
+                <article>
+                  <img src="https://via.placeholder.com/520x320.png?text=Playera+Ajolote" alt="Playera Ajolote" loading="lazy" />
+                  <h3>Playera Ajolote</h3>
+                  <p>Playera de algodón con diseño exclusivo.</p>
+                </article>
+                <article>
+                  <img src="https://via.placeholder.com/520x320.png?text=Taza+Ajolote" alt="Taza Ajolote" loading="lazy" />
+                  <h3>Taza Ecológica</h3>
+                  <p>Taza reutilizable con arte del ajolote.</p>
+                </article>
+              </div>
+            </section>
 
-      <section class="section info-section" id="terms">
-        <h2>Términos y condiciones</h2>
-        <p>El uso de este sitio es con fines informativos y de apoyo al refugio. Todas las compras y donaciones se realizan de acuerdo con las políticas de conservación del proyecto.</p>
-      </section>
-    </main>
+            <section id="iframe-ejemplo" class="section">
+              <h2>IFrame ejemplo</h2>
+              <p>Embeds o iframes permiten mostrar contenido externo dentro del sitio.</p>
+              <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </section>
 
-    <footer class="site-footer">
-      <div>
-        <strong>Santuario Axolotl</strong>
-        <p>Protección de especies, educación ambiental y productos con causa.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#privacy">Aviso de privacidad</a>
-        <a href="#terms">Términos y condiciones</a>
-      </div>
-    </footer>
+            <section id="video" class="section">
+              <h2>Video HTML5</h2>
+              <video controls width="720" preload="metadata">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Tu navegador no soporta video HTML5.
+              </video>
+            </section>
 
-    <style>
-      :root {
-        color-scheme: light;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #eef7f2;
-        color: #12332a;
+            <section id="testimonios" class="section">
+              <h2>Testimonios</h2>
+              <div class="testimonial-grid">
+                <blockquote>"Excelente experiencia educativa." <footer>— Visitante</footer></blockquote>
+                <blockquote>"Apoyar al refugio fue muy gratificante." <footer>— Donante</footer></blockquote>
+              </div>
+            </section>
+
+            <section id="mapa" class="section">
+              <h2>Mapa interactivo</h2>
+              <p>Mapa interactivo con Leaflet y OpenStreetMap.</p>
+              <div id="leaflet-map" style="height:420px;border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,0.08)"></div>
+            </section>
+
+            <section id="tabla-ejemplo" class="section">
+              <h2>Tabla de horarios</h2>
+              <table class="simple-table">
+                <thead>
+                  <tr><th>Día</th><th>Horario</th><th>Actividad</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Lunes</td><td>09:00 - 13:00</td><td>Visitas guiadas</td></tr>
+                  <tr><td>Miércoles</td><td>10:00 - 14:00</td><td>Talleres educativos</td></tr>
+                  <tr><td>Sábado</td><td>11:00 - 16:00</td><td>Mercadillo solidario</td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section id="formulario" class="section">
+              <h2>Formulario de contacto (mejorado)</h2>
+              <form id="contact-form" class="contact-form">
+                <label>Nombre<input type="text" name="nombre" placeholder="Tu nombre" required></label>
+                <label>Correo<input type="email" name="correo" placeholder="correo@ejemplo.com" required></label>
+                <label>Asunto<select name="asunto">
+                  <option value="consulta">Consulta</option>
+                  <option value="pedido">Pedido</option>
+                  <option value="voluntariado">Voluntariado</option>
+                </select></label>
+                <label>Preferencia
+                  <div>
+                    <label><input type="checkbox" name="aviso" value="newsletter"> Recibir novedades</label>
+                    <label><input type="radio" name="preferencia" value="email" checked> Email</label>
+                    <label><input type="radio" name="preferencia" value="telefono"> Teléfono</label>
+                  </div>
+                </label>
+                <label>Mensaje<textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí" required></textarea></label>
+                <button type="submit" class="button primary">Enviar mensaje</button>
+                <p id="contact-feedback" class="feedback"></p>
+              </form>
+            </section>
+
+            <section id="enlaces" class="section">
+              <h2>Hipervínculos y anclas</h2>
+              <p>Enlace externo: <a href="https://es.wikipedia.org/wiki/Ajolote" target="_blank" rel="noopener">Wikipedia — Ajolote</a></p>
+              <p>Enlace interno (ancla): <a href="#mapa">Ir al mapa</a></p>
+            </section>
+
+          </main>
+
+          <footer class="site-footer">
+            <div>
+              <strong>Santuario Axolotl</strong>
+              <p>Protección, educación y productos con causa.</p>
+            </div>
+            <div class="footer-links">
+              <a href="#tabla-ejemplo">Horarios</a>
+              <a href="#formulario">Contacto</a>
+            </div>
+          </footer>
+
+          <style>
+            :root{color-scheme:light;font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif}
+            .page{max-width:1100px;margin:0 auto;padding:2rem}
+            .section{margin-top:2.5rem}
+            .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+            .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+            .simple-table{width:100%;border-collapse:collapse}
+            .simple-table th,.simple-table td{padding:.75rem;border:1px solid #e6efe9}
+            .contact-form label{display:block;margin-bottom:.75rem}
+            .contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:.6rem;border:1px solid #dfeee1;border-radius:8px}
+            .button{display:inline-block;padding:.6rem 1rem;border-radius:12px;border:0;background:#2f8f6b;color:#fff;font-weight:700}
+            header.site-header{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+            .site-nav a{margin-left:1rem;color:#1f5a40;text-decoration:none}
+            @media(max-width:800px){.site-nav{display:none}}
+          </style>
+        `;
+
+        // Contact form handling
+        const form = root.querySelector('#contact-form');
+        const feedback = root.querySelector('#contact-feedback');
+        if (form && feedback) {
+          form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            feedback.textContent = '¡Gracias! Hemos recibido tu mensaje.';
+            form.reset();
+          });
+        }
+
+        // Initialize Leaflet map after loading the library
+        loadLeaflet(() => {
+          try {
+            const map = L.map('leaflet-map').setView([19.2861, -99.2342], 11);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+            L.marker([19.2861, -99.2342]).addTo(map).bindPopup('Santuario Axolotl (ubicación aproximada)').openPopup();
+          } catch (err) {
+            console.warn('Leaflet init error', err);
+          }
+        });
       }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        background: linear-gradient(180deg, #eef7f2 0%, #ffffff 100%);
-      }
-      .site-header,
-      .site-footer {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .site-header {
-        position: sticky;
-        top: 0;
-        background: rgba(255,255,255,0.96);
-        backdrop-filter: blur(10px);
-        z-index: 10;
-        border-bottom: 1px solid rgba(18, 51, 42, 0.08);
-      }
-      .brand {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-      }
-      .logo {
-        width: 3rem;
-        height: 3rem;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: #2f8f6b;
-        color: white;
-        font-size: 1.5rem;
-      }
-      .site-nav {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-      .site-nav a,
-      .footer-links a {
-        color: #1f5a40;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .page {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem 1.5rem 4rem;
-      }
-      .hero {
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 2rem;
-        align-items: center;
-        background: white;
-        border-radius: 32px;
-        padding: 3rem;
-        box-shadow: 0 24px 60px rgba(18, 51, 42, 0.08);
-      }
-      .hero-copy {
-        max-width: 620px;
-      }
-      .hero h2 {
-        font-size: clamp(2.5rem, 3vw, 4rem);
-        margin: 0.5rem 0 1rem;
         line-height: 1.05;
       }
       .hero .lead {
