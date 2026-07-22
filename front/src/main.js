@@ -3,8 +3,6 @@ const root = document.getElementById('root');
 if (root) {
   root.innerHTML = `
     <header class="site-header">
-      const root = document.getElementById('root');
-
       // Dynamically load Leaflet CSS and JS for the interactive map
       function loadLeaflet(callback) {
         if (window.L) return callback();
@@ -18,6 +16,8 @@ if (root) {
         script.onload = () => callback();
         document.body.appendChild(script);
       }
+
+      const root = document.getElementById('root');
 
       if (root) {
         root.innerHTML = `
