@@ -37,3 +37,14 @@ function copyDir(src, dest) {
     }
   }
 }
+
+// Create a fallback copy at front/front/dist in case the Netlify site
+// configuration was set with a duplicated base path.
+try {
+  const altDist = path.join(root, 'front', 'dist');
+  if (fs.existsSync(distDir)) {
+    copyDir(distDir, altDist);
+  }
+} catch (err) {
+  // non-fatal: continue without failing the build script
+}
