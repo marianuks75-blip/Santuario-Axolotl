@@ -3,7 +3,7 @@ const root = document.getElementById('root');
 if (root) {
   root.innerHTML = `
     <header class="site-header">
-      // Dynamically load Leaflet CSS and JS for the interactive map
+      // Clean frontend module: template, handlers and map loader
       function loadLeaflet(callback) {
         if (window.L) return callback();
         const link = document.createElement('link');
@@ -19,7 +19,9 @@ if (root) {
 
       const root = document.getElementById('root');
 
-      if (root) {
+      if (!root) {
+        // nothing to render
+      } else {
         root.innerHTML = `
           <header class="site-header">
             <div class="brand">
