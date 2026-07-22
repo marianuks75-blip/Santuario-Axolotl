@@ -31,48 +31,48 @@
   <body>
     <div class="container">
       <header>
-        <div class="logo">
-          <div class="emoji">🦎</div>
-          <div>
-            <div class="eyebrow">Santuario Axolotl</div>
-            <strong>Conservación y refugio</strong>
-          </div>
-        </div>
-        <nav>
-          <a href="#productos">Productos</a>
-          <a href="#video">Video</a>
-          <a href="#testimonios">Testimonios</a>
-          <a href="#mapa">Mapa</a>
-          <a href="#formulario">Contacto</a>
-        </nav>
-      </header>
+        <style>
+          :root{color-scheme:light;font-family:Inter,Segoe UI, Tahoma, Geneva, Verdana, sans-serif}
+          *{box-sizing:border-box}
+          html,body{height:100%;margin:0;background:#f4fbf8;color:#16362b;scroll-behavior:smooth}
 
-      <section class="hero">
-        <div>
-          <h1>Un espacio dedicado a la protección y difusión del ajolote</h1>
-          <p>Visítanos para conocer nuestro refugio, explorar productos responsables y apoyar la conservación de esta especie única.</p>
-          <div style="margin-top:1rem">
-            <a class="button" href="#formulario">Contactar</a>
-            <a href="#productos" style="margin-left:1rem">Ver productos</a>
-          </div>
-        </div>
-        <div>
-          <img src="https://via.placeholder.com/720x520.png?text=Ajolote+refugio" alt="Ajolote" />
-        </div>
-      </section>
+          /* Header (full-width, fixed) */
+          .site-header{position:fixed;left:0;top:0;width:100%;height:72px;background:rgba(255,255,255,0.85);backdrop-filter:blur(6px);box-shadow:0 6px 24px rgba(8,30,20,0.06);z-index:1000;display:flex;align-items:center}
+          .site-header .container{display:flex;justify-content:space-between;align-items:center;padding:0 1rem}
+          .logo{display:flex;gap:1rem;align-items:center}
+          .logo .emoji{background:#2f8f6b;color:#fff;border-radius:50%;width:48px;height:48px;display:grid;place-items:center;font-size:20px}
+          nav a{margin-left:1rem;color:#1f5a40;text-decoration:none;font-weight:600;position:relative;padding:.5rem .25rem}
+          nav a::after{content:'';position:absolute;left:0;right:0;bottom:6px;height:2px;background:transparent;transition:all .25s ease}
+          nav a:hover::after{background:linear-gradient(90deg,#2f8f6b,#4fbf8f)}
 
-      <section id="productos">
-        <h2>Productos</h2>
-        <div class="cards">
-          <div class="card"><img src="https://via.placeholder.com/520x320.png?text=Producto+1" alt="P1"><h3>Playera</h3><p>Diseño con causa</p></div>
-          <div class="card"><img src="https://via.placeholder.com/520x320.png?text=Producto+2" alt="P2"><h3>Taza</h3><p>Material reciclado</p></div>
-          <div class="card"><img src="https://via.placeholder.com/520x320.png?text=Producto+3" alt="P3"><h3>Cuaderno</h3><p>Ilustraciones locales</p></div>
-        </div>
-      </section>
+          /* Page container with offset for fixed header */
+          .container{max-width:1100px;margin:0 auto;padding:2rem}
+          main.container{padding-top:92px}
 
-      <section id="video" style="margin-top:1.5rem">
-        <h2>Video del refugio</h2>
-        <div class="video-wrapper">
+          /* Hero and content */
+          .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;background:#fff;padding:2rem;border-radius:16px;box-shadow:0 12px 30px rgba(18,51,42,0.06);align-items:center}
+          img{max-width:100%;height:auto;border-radius:12px}
+          .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+          .card{background:#fff;padding:1rem;border-radius:12px;box-shadow:0 8px 20px rgba(18,51,42,0.06);transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s}
+          .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(18,51,42,0.12)}
+          .video-wrapper, #leaflet-map{border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(18,51,42,0.06);background:#fff}
+
+          table{width:100%;border-collapse:collapse}
+          table th,table td{padding:.6rem;border:1px solid #e6efe9}
+          form{display:grid;gap:.75rem}
+          input,textarea,select{padding:.6rem;border:1px solid #dfeee1;border-radius:8px;width:100%;transition:box-shadow .18s}
+          input:focus,textarea:focus,select:focus{outline:none;box-shadow:0 6px 20px rgba(47,143,107,0.12)}
+          .button{background:#2f8f6b;color:#fff;padding:.6rem 1rem;border-radius:12px;border:0;font-weight:700}
+
+          footer{margin-top:2rem;padding:1.5rem 0;border-top:1px solid rgba(18,51,42,0.06);display:flex;justify-content:space-between}
+
+          /* Section reveal animation */
+          .section{opacity:0;transform:translateY(12px);animation:fadeIn .6s ease forwards}
+          @keyframes fadeIn{to{opacity:1;transform:none}}
+
+          /* Top spacing for content on small screens */
+          @media(max-width:900px){.hero{grid-template-columns:1fr}.site-header .container{padding:0 0.75rem}.site-header nav{display:none}}
+        </style>
           <iframe width="100%" height="420" src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video" frameborder="0" allowfullscreen></iframe>
         </div>
       </section>
@@ -91,42 +91,25 @@
       </section>
 
       <section id="tabla-ejemplo" style="margin-top:1.5rem">
-        <h2>Horarios</h2>
-        <table>
-          <thead><tr><th>Día</th><th>Horario</th><th>Actividad</th></tr></thead>
-          <tbody>
-            <tr><td>Lunes</td><td>09:00 - 13:00</td><td>Visitas guiadas</td></tr>
-            <tr><td>Miércoles</td><td>10:00 - 14:00</td><td>Talleres</td></tr>
-            <tr><td>Sábado</td><td>11:00 - 16:00</td><td>Mercadillo</td></tr>
-          </tbody>
-        </table>
+        <body>
+          <header class="site-header">
+            <div class="container">
+              <div class="logo">
+                <div class="emoji">🦎</div>
+                <div>
+                  <div class="eyebrow">Santuario Axolotl</div>
+                  <strong>Conservación y refugio</strong>
+                </div>
+              </div>
+              <nav>
+                <a href="#productos">Productos</a>
+                <a href="#video">Video</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#mapa">Mapa</a>
+                <a href="#formulario">Contacto</a>
+              </nav>
+            </div>
+          </header>
+
+          <main class="container" id="root"></main>
       </section>
-
-      <section id="formulario" style="margin-top:1.5rem">
-        <h2>Contacto</h2>
-        <form id="contact-form">
-          <label>Nombre<input name="nombre" required></label>
-          <label>Correo<input type="email" name="correo" required></label>
-          <label>Asunto<select name="asunto"><option>Consulta</option><option>Pedido</option></select></label>
-          <label>Mensaje<textarea name="mensaje" rows="4" required></textarea></label>
-          <button class="button" type="submit">Enviar</button>
-          <p id="contact-feedback" style="font-weight:700;color:#1f5a40"></p>
-        </form>
-      </section>
-
-      <footer>
-        <div>
-          <strong>Santuario Axolotl</strong>
-          <p>Protección, educación y productos con causa.</p>
-        </div>
-        <div>
-          <a href="#tabla-ejemplo">Horarios</a>
-          <a href="#formulario" style="margin-left:1rem">Contacto</a>
-        </div>
-      </footer>
-    </div>
-
-    <!-- React via CDN + Babel for in-browser JSX transpile -->
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>

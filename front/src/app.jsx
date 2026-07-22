@@ -76,51 +76,82 @@ function Products() {
   );
 }
 
+function Nav() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return (
+    <header className={`topnav ${scrolled ? 'elevated' : ''}`}>
+      <div className="topnav-inner">
+        <div className="brand">
+          <div className="emoji">🦎</div>
+          <div className="brand-text"><div className="eyebrow">Santuario Axolotl</div><strong>Conservación</strong></div>
+        </div>
+        <nav className={`nav-links ${open ? 'open' : ''}`}>
+          <a href="#productos" onClick={() => setOpen(false)}>Productos</a>
+          <a href="#video" onClick={() => setOpen(false)}>Video</a>
+          <a href="#testimonios" onClick={() => setOpen(false)}>Testimonios</a>
+          <a href="#mapa" onClick={() => setOpen(false)}>Mapa</a>
+          <a href="#formulario" onClick={() => setOpen(false)}>Contacto</a>
+        </nav>
+        <button className="nav-toggle" aria-label="Toggle navigation" onClick={() => setOpen(!open)}>{open ? '✕' : '☰'}</button>
+      </div>
+    </header>
+  );
+}
+
 function App(){
   return (
-    <div className="container">
-      <header>
-        <div className="logo"><div className="emoji">🦎</div><div><div className="eyebrow">Santuario Axolotl</div><strong>Conservación y refugio</strong></div></div>
-        <nav><a href="#productos">Productos</a><a href="#video">Video</a><a href="#testimonios">Testimonios</a><a href="#mapa">Mapa</a><a href="#formulario">Contacto</a></nav>
-      </header>
+    <div>
+      <Nav />
+      <main className="container with-nav">
+        <section className="hero animate-up">
+          <div className="hero-copy">
+            <h1>Un espacio dedicado a la protección y difusión del ajolote</h1>
+            <p className="lead">Visítanos para conocer nuestro refugio, explorar productos responsables y apoyar la conservación de esta especie única.</p>
+            <div style={{marginTop:16}}>
+              <a className="button" href="#formulario">Contactar</a>
+              <a className="muted" href="#productos" style={{marginLeft:16}}>Ver productos</a>
+            </div>
+          </div>
+          <div className="hero-visual animate-fade">
+            <img src="https://via.placeholder.com/720x520.png?text=Ajolote+refugio" alt="Ajolote" />
+          </div>
+        </section>
 
-      <section className="hero">
-        <div>
-          <h1>Un espacio dedicado a la protección y difusión del ajolote</h1>
-          <p>Visítanos para conocer nuestro refugio, explorar productos responsables y apoyar la conservación de esta especie única.</p>
-          <div style={{marginTop:16}}><a className="button" href="#formulario">Contactar</a><a href="#productos" style={{marginLeft:16}}>Ver productos</a></div>
-        </div>
-        <div><img src="https://via.placeholder.com/720x520.png?text=Ajolote+refugio" alt="Ajolote" /></div>
-      </section>
+        <Products />
 
-      <Products />
+        <section id="video" className="animate-up">
+          <h2>Video del refugio</h2>
+          <div className="video-wrapper"><iframe width="100%" height="420" src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video" frameBorder="0" allowFullScreen></iframe></div>
+        </section>
 
-      <section id="video" style={{marginTop:24}}>
-        <h2>Video del refugio</h2>
-        <div className="video-wrapper"><iframe width="100%" height="420" src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video" frameBorder="0" allowFullScreen></iframe></div>
-      </section>
+        <section id="testimonios" className="animate-up">
+          <h2>Testimonios</h2>
+          <div className="cards"><div className="card">“El refugio es hermoso.”<br/><strong>— Visitante</strong></div><div className="card">“Apoyar al refugio fue muy gratificante.”<br/><strong>— Donante</strong></div></div>
+        </section>
 
-      <section id="testimonios" style={{marginTop:24}}>
-        <h2>Testimonios</h2>
-        <div className="cards"><div className="card">“El refugio es hermoso.”<br/><strong>— Visitante</strong></div><div className="card">“Apoyar al refugio fue muy gratificante.”<br/><strong>— Donante</strong></div></div>
-      </section>
+        <section id="mapa" className="animate-up">
+          <h2>Mapa</h2>
+          <Map />
+        </section>
 
-      <section id="mapa" style={{marginTop:24}}>
-        <h2>Mapa</h2>
-        <Map />
-      </section>
+        <section id="tabla-ejemplo" className="animate-up">
+          <h2>Horarios</h2>
+          <table><thead><tr><th>Día</th><th>Horario</th><th>Actividad</th></tr></thead><tbody><tr><td>Lunes</td><td>09:00 - 13:00</td><td>Visitas guiadas</td></tr><tr><td>Miércoles</td><td>10:00 - 14:00</td><td>Talleres</td></tr><tr><td>Sábado</td><td>11:00 - 16:00</td><td>Mercadillo</td></tr></tbody></table>
+        </section>
 
-      <section id="tabla-ejemplo" style={{marginTop:24}}>
-        <h2>Horarios</h2>
-        <table><thead><tr><th>Día</th><th>Horario</th><th>Actividad</th></tr></thead><tbody><tr><td>Lunes</td><td>09:00 - 13:00</td><td>Visitas guiadas</td></tr><tr><td>Miércoles</td><td>10:00 - 14:00</td><td>Talleres</td></tr><tr><td>Sábado</td><td>11:00 - 16:00</td><td>Mercadillo</td></tr></tbody></table>
-      </section>
+        <section id="formulario" className="animate-up">
+          <h2>Contacto</h2>
+          <ContactForm />
+        </section>
 
-      <section id="formulario" style={{marginTop:24}}>
-        <h2>Contacto</h2>
-        <ContactForm />
-      </section>
-
-      <footer><div><strong>Santuario Axolotl</strong><p>Protección, educación y productos con causa.</p></div><div><a href="#tabla-ejemplo">Horarios</a><a href="#formulario" style={{marginLeft:16}}>Contacto</a></div></footer>
+        <footer className="site-footer animate-fade"><div><strong>Santuario Axolotl</strong><p>Protección, educación y productos con causa.</p></div><div><a href="#tabla-ejemplo">Horarios</a><a href="#formulario" style={{marginLeft:16}}>Contacto</a></div></footer>
+      </main>
     </div>
   );
 }
